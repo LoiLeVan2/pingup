@@ -12,7 +12,7 @@ const MenuItems = ({ setSidebarOpen }) => {
                             <span className={`absolute inset-0 rounded-xl transition-transform duration-300 ease-out
                                 ${isActive ? "bg-indigo-100 scale-x-100 origin-left" : "bg-indigo-50 scale-x-0 group-hover:scale-x-100 origin-left"}`}></span>
                             <span className={`relative flex items-center gap-3 transition duration-300 ease-out transform
-                                ${isActive ? "text-indigo-700 scale-110" : "text-gray-600 group-hover:text-indigo-700 group-hover:scale-105"}`}>
+                                ${isActive ? "text-indigo-700 scale-110" : "text-gray-600 group-hover:text-indigo-500 group-hover:scale-105 group-active:scale-95"}`}>
                                 <Icon className="w-5 h-5" />
                                 {label}
                             </span>
