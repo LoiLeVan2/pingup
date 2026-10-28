@@ -1,0 +1,30 @@
+
+name: Auto Sync to My PingUp
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to destination repository
+        env:
+          TOKEN: ${{ secrets.PINGUP_SYNC_TOKEN }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          git remote add destination \
+            "https://x-access-token:${TOKEN}@github.com/LoiLeVan2/pingup.git"
+
+          git push destination \
+            "HEAD:refs/heads/${BRANCH}"
