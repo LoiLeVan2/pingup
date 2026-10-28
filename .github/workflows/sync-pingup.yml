@@ -1,0 +1,34 @@
+
+name: Auto Sync to My PingUp
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Push to destination repository
+        env:
+          TOKEN: ${{ secrets.PINGUP_SYNC_TOKEN }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "ERROR: PINGUP_SYNC_TOKEN is missing or unavailable."
+            exit 1
+          fi
+
+          git push \
+            "https://x-access-token:${TOKEN}@github.com/LoiLeVan2/pingup.git" \
+            "HEAD:refs/heads/${BRANCH}"
