@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   sync:
+    if: github.repository == 'ductruong02/mangxahoi'
     runs-on: ubuntu-latest
 
     steps:
