@@ -127,6 +127,10 @@ export const functions = [
 ]
 
 console.log(
-    "REGISTERED INNGEST FUNCTIONS:",
-    functions.map(fn => fn.id)
+    "INNGEST FUNCTION DETAILS:",
+    functions.map(fn => ({
+        keys: Object.keys(fn),
+        id: fn.id,
+        name: fn.name
+    }))
 )
