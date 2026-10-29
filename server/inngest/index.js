@@ -125,3 +125,8 @@ export const functions = [
     syncUserDeletion,
     sendNewConnectionRequestReminder
 ]
+
+console.log(
+    "REGISTERED INNGEST FUNCTIONS:",
+    functions.map(fn => fn.id)
+)
