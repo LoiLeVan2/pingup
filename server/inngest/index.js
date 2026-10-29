@@ -125,12 +125,3 @@ export const functions = [
     syncUserDeletion,
     sendNewConnectionRequestReminder
 ]
-
-console.log(
-    "INNGEST FUNCTION DETAILS:",
-    functions.map(fn => ({
-        keys: Object.keys(fn),
-        id: fn.id,
-        name: fn.name
-    }))
-)
