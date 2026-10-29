@@ -119,6 +119,16 @@ const sendNewConnectionRequestReminder = inngest.createFunction(
 )
 
 
+console.log(
+    "Inngest functions:",
+    [
+        syncUserCreation,
+        syncUserUpdation,
+        syncUserDeletion,
+        sendNewConnectionRequestReminder
+    ].map(fn => fn.id)
+)
+
 
 // Create an empty array where we'll export future Inngest functions
 export const functions = [
